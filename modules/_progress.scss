@@ -1,0 +1,66 @@
+.progress {
+  align-items: center;
+  display: flex;
+
+  .progress-x-complete {
+    background-color: $color-dark5;
+    height: 100%;
+    max-width: 100%;
+    min-width: 3%;
+    position: relative;
+    transition: background-color $transition-easing $transition-duration;
+    z-index: $z-index-medium;
+  }
+
+  .progress-x-indicator {
+    background-color: $color-light1;
+    border-radius: $border-radius;
+    box-shadow: 0 0 0 1px $color-dark5;
+    flex-grow: 1;
+    height: $gridspacing * 2;
+    min-width: $gridspacing * 8;
+    padding: 3px;
+    position: relative;
+    width: 100%;
+
+    &::before {
+      background-color: $color-light2;
+      border-radius: 1px;
+      bottom: 3px;
+      content: '';
+      left: 3px;
+      position: absolute;
+      right: 3px;
+      top: 3px;
+      z-index: $z-index-low;
+    }
+  }
+
+  .progress-x-text {
+    @include typography-small;
+    margin-bottom: -1px;
+    white-space: nowrap;
+
+    + .progress-x-indicator {
+      margin-left: $gridspacing;
+    }
+  }
+
+  &.progress-is-error {
+    .progress-x-complete {
+      background-color: $color-error1;
+    }
+  }
+
+  &.progress-is-success {
+    .progress-x-complete {
+      background-color: $color-success1;
+    }
+  }
+
+  &.progress-is-warning {
+    .progress-x-complete {
+      background-color: $color-alert1;
+    }
+  }
+}

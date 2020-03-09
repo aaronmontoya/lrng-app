@@ -1,0 +1,109 @@
+.builderbody {
+  background-color: $color-light1;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr auto;
+  grid-template-rows: minmax(min-content, 1fr) auto;
+  height: 100%;
+
+  .builderbody-x-addcontentcontrols {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: $gridspacing * 4;
+
+    > * {
+      width: 100%;
+    }
+
+    > *:not(:first-child) {
+      margin-top: $gridspacing;
+    }
+  }
+
+  .builderbody-x-body {
+    -ms-grid-row: 1;
+    padding: $gridspacing * 4 $gridspacing * 2;
+  }
+
+  .builderbody-x-copy {
+    margin-top: $gridspacing;
+
+    + .builderbody-x-inputcontent {
+      margin-top: $gridspacing * 4;
+    }
+  }
+
+  .builderbody-x-headline {
+    @include typography-h3;
+
+    + .builderbody-x-inputcontent {
+      margin-top: $gridspacing;
+    }
+  }
+
+  .builderbody-x-nav {
+    -ms-grid-row: 3;
+  }
+
+  @media(min-width: $media-mobilelarge) {
+    position: relative;
+
+    .builderbody-x-addcontentcontrols {
+      flex-direction: row;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      max-width: 100%;
+
+      > * {
+        margin-bottom: $gridspacing;
+        width: auto;
+
+        &:not(:first-child) {
+          margin-top: 0;
+        }
+
+        &:not(:last-child) {
+          margin-right: $gridspacing;
+        }
+      }
+    }
+
+    .builderbody-x-body {
+      padding: $gridspacing * 9 $gridspacing * 9 $gridspacing * 6;
+    }
+
+    .builderbody-x-copy {
+      @include typography-body-large;
+      margin-top: $gridspacing * 2;
+    }
+
+    .builderbody-x-headline {
+      @include typography-h2;
+    }
+
+    .builderbody-x-inputcontent {
+      margin-top: $gridspacing * 4;
+    }
+
+    .builderbody-x-nav {
+      bottom: $gridspacing * 3;
+      left: $gridspacing * 3;
+      margin: 24px;
+      position: sticky;
+      right: $gridspacing * 3;
+    }
+  }
+
+  @media(min-width:$media-desktop) {
+
+    .builderbody-x-body {
+      padding-top: 184px;
+    }
+
+    .builderbody-x-nav {
+      left: calc(480px + 24px); // 480px(builder bar width) + 24px(padding builder nav from builderbody)
+      max-width: calc(960px - 48px); // 960px(max-width of builder body) - 48px(left and right padding combined)
+    }
+  }
+}

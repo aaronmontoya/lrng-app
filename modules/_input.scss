@@ -1,0 +1,104 @@
+.input {
+  label,
+  .input-x-label {
+    @include typography-h3;
+    color: $color-dark1;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    transition: color $transition-duration $transition-easing;
+
+    > a {
+      color: $color-interactive2;
+    }
+  }
+
+  .input-x-formcontentcontrols {
+    display: flex;
+    margin-left: $gridspacing * 2;
+  }
+
+  .input-x-header {
+    display: flex;
+  }
+
+  .input-x-input {
+    margin-top: $gridspacing;
+  }
+
+  .input-x-error {
+    @include typography-small;
+    color: $color-error1;
+    -ms-grid-column-span: 3;
+    grid-column-end: 3;
+    grid-column-start: 1;
+    -ms-grid-row: 1;
+    grid-row: 1;
+  }
+
+  .input-x-note {
+    @include typography-small;
+    color: $color-dark1;
+    flex-grow: 1;
+  }
+
+  .input-x-messages {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr auto;
+    grid-template-columns: 1fr auto;
+    margin-top: $gridspacing;
+  }
+
+  .input-x-messages,
+  .input-x-messagescolumn {
+    -ms-grid-row: 2;
+    grid-row: 2;
+  }
+
+  .input-x-messagescolumn {
+    > *:not(:first-child) {
+      margin-top: $gridspacing;
+    }
+
+    &:first-of-type {
+      -ms-grid-column: 1;
+    }
+
+    &:nth-of-type(2) {
+      -ms-grid-column: 2;
+      -ms-grid-columns: 100% min-content;
+      grid-template-columns: 100% min-content;
+    }
+
+    + .input-x-messagescolumn {
+      margin-left: $gridspacing;
+    }
+  }
+}
+
+.input-large {
+
+  label,
+  .input-x-label {
+    @include typography-h2;
+  }
+
+  .input-x-input {
+    margin-top: $gridspacing * 2;
+  }
+}
+
+.input-responsive {
+
+  @media(min-width: $media-mobilelarge) {
+    label,
+    .input-x-label {
+      @include typography-h2;
+    }
+
+    .input-x-input {
+      margin-top: $gridspacing * 2;
+    }
+  }
+}

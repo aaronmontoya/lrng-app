@@ -1,0 +1,16 @@
+.buildernavgraphic {
+  height: 360px;
+  overflow: hidden;
+  position: relative;
+  width: 480px;
+
+  .buildernavgraphic-x-image {
+    height: 358px;
+    left: 50%;
+    max-width: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 662px;
+  }
+}

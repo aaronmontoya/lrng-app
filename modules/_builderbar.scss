@@ -1,0 +1,99 @@
+.builderbar {
+  background-color: $color-light2;
+
+  .builderbar-x-buttonpreview {
+    padding-bottom: $gridspacing * 3.5;
+    padding-top: $gridspacing * 3.5;
+  }
+
+  .builderbar-x-buttonpreviewicon {
+    color: $color-interactive2;
+    fill: currentColor;
+    flex-shrink: 0;
+    height: $gridspacing * 3;
+    stroke: currentColor;
+    stroke-width: 0;
+    width: $gridspacing * 3;
+  }
+
+  .builderbar-x-copy {
+    margin-top: $gridspacing;
+  }
+
+  .builderbar-x-copycontainer {
+    padding: $gridspacing * 4 $gridspacing * 2;
+  }
+
+  .builderbar-x-footer {
+    display: none;
+  }
+
+  .builderbar-x-headline {
+    @include typography-h3-bold;
+    margin-top: $gridspacing * 2;
+  }
+
+  .builderbar-x-kicker {
+    @include typography-small-bold;
+    text-transform: uppercase;
+  }
+
+  .builderbar-x-navgraphic {
+    display: none;
+    margin-bottom: $gridspacing * 9;
+  }
+
+  .builderbar-x-rule {
+    background-color: $color-light3;
+    height: 1px;
+  }
+
+  .builderbar-x-triggermenu {
+    padding: $gridspacing * 2;
+  }
+
+  .builderbar-x-triggermenutext {
+    @include typography-link;
+    color: $color-interactive1;
+  }
+
+  @media(min-width:$media-mobilelarge) {
+    .builderbar-x-copy {
+      @include typography-body-large;
+      margin-top: $gridspacing * 2;
+    }
+
+    .builderbar-x-copycontainer {
+      padding: $gridspacing * 9;
+    }
+
+    .builderbar-x-footer {
+      display: block;
+      padding-left: $gridspacing * 9;
+    }
+
+    .builderbar-x-headline {
+      @include typography-h2-bold;
+    }
+
+    .builderbar-x-rulecontainer {
+      margin-left: $gridspacing * 9;
+    }
+
+    .builderbar-x-triggermenu {
+      padding: $gridspacing * 3;
+    }
+  }
+
+  @media(min-width:$media-desktop) {
+
+    .builderbar-x-copycontainer {
+      padding: $gridspacing * 9 $gridspacing * 9 0;
+    }
+
+    .builderbar-x-navgraphic {
+      display: block;
+      margin-top: $gridspacing * 4;
+    }
+  }
+}

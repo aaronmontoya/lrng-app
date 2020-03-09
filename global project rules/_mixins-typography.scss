@@ -1,0 +1,130 @@
+// Typography
+// Based on Sketch document
+
+// NOTE: Typography mixins are added to u-text module when npm start is run
+@mixin typography-body {
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+@mixin typography-body-large {
+  font-family: $font-family;
+  font-size: $font-size-large1;
+  line-height: $line-height-large1;
+}
+@mixin typography-body-small {
+  font-family: $font-family;
+  font-size: $font-size-small1;
+  line-height: $line-height-small1;
+}
+@mixin typography-body-bold {
+  @include     typography-body;
+
+  font-weight: bold;
+}
+@mixin typography-h1 {
+  font-family: $font-family;
+  font-size: $font-size-large4;
+  line-height: $line-height-large2;
+}
+@mixin typography-h2 {
+  font-family: $font-family;
+  font-size: $font-size-large3;
+  line-height: $line-height-large1;
+}
+@mixin typography-h2-bold {
+  @include     typography-h2;
+
+  font-weight: bold;
+}
+@mixin typography-h3 {
+  font-family: $font-family;
+  font-size: $font-size-large2;
+  line-height: $line-height-large1;
+}
+@mixin typography-h3-bold {
+  @include     typography-h3;
+
+  font-weight: bold;
+}
+@mixin typography-link {
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    color: $color-dark1;
+    text-decoration: none;
+  }
+}
+@mixin typography-link-primary {
+  @include            typography-link;
+
+  color: $color-interactive1;
+}
+@mixin typography-link-secondary {
+  @include            typography-link;
+
+  color: $color-interactive2;
+}
+@mixin typography-small {
+  font-family: $font-family;
+  font-size: $font-size-small1;
+  line-height: $line-height-small1;
+}
+@mixin typography-small-bold {
+  @include     typography-small;
+
+  font-weight: bold;
+}
+
+
+
+@mixin list-bullets() {
+   list-style: none !important;
+   margin-top: $gridspacing*2;
+
+   > li {
+
+     &::before {
+       content: "•";
+       color: inherit;
+       display: inline-block;
+       font-size: 24px;
+       font-weight: 900;
+       line-height: inherit;
+       margin-left: -24px;
+       margin-top: 11px;
+       position: absolute;
+       text-align: center;
+       transform: translateY(-50%);
+       width: 20px;
+     }
+   }
+ }
+
+ @mixin list-numbers() {
+   counter-reset: step-counter;
+   list-style: none !important;
+   margin-top: $gridspacing*2;
+
+   > li {
+     counter-increment: step-counter;
+
+     &::before {
+       color: inherit;
+       content: counter(step-counter)'.';
+       display: inline-block;
+       font-weight: bolder;
+       margin-left: -22px;
+       position: absolute;
+       text-align: left;
+       width: 20px;
+     }
+   }
+ }

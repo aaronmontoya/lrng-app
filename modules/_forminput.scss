@@ -1,0 +1,319 @@
+.forminput {
+  position: relative;
+  width: 100%;
+
+  input,
+  select,
+  textarea {
+    &[value] {
+      box-shadow:
+      0 0 0 2px transparent,
+      inset 0 0 0 1px $color-dark4;
+    }
+
+    &:not([value]),
+    &[value=""] {
+      box-shadow:
+      0 0 0 2px transparent,
+      inset 0 0 0 1px $color-dark5;
+    }
+  }
+
+  input,
+  textarea {
+    @include typography-body;
+    background-clip: border-box;
+    background-color: $color-light1;
+    background-image: none;
+    border-radius: $border-radius;
+    box-shadow:
+      0 0 0 1px $color-dark5;
+    color: $color-dark1;
+    display: block;
+    outline: none;
+    padding: $gridspacing * 1.25 $gridspacing * 2 $gridspacing * .75;
+    transition: all $transition-duration $transition-easing;
+    width: 100%;
+
+    &::-webkit-input-placeholder { // Chrome/Opera/Safari
+      color: $color-dark3;
+    }
+
+    &::-moz-placeholder { // Firefox 19+
+      color: $color-dark3;
+    }
+
+    &::-ms-clear { // Edge 18+
+      display: none;
+    }
+
+    &::-ms-input-placeholder { // IE 10+
+      color: $color-dark3;
+    }
+
+    &::-moz-placeholder { // Firefox 18-
+      color: $color-dark3;
+    }
+
+    &:hover {
+      box-shadow:
+        0 0 0 2px transparent,
+        inset 0 0 0 1px $color-dark4;
+    }
+
+    &:focus {
+      box-shadow:
+        0 0 0 2px $color-interactive2,
+        inset 0 0 0 1px $color-dark5;
+    }
+
+    &:disabled {
+      border-color: $color-light2;
+      cursor: not-allowed;
+      opacity: .5;
+
+      + .forminput-x-icon {
+        color: $color-light3;
+      }
+
+      &:hover {
+        opacity: .6;
+      }
+    }
+  }
+
+  select {
+    @include typography-body;
+    appearance: none;
+    border-radius: $border-radius;
+    box-shadow:
+      0 0 0 2px transparent,
+      inset 0 0 0 1px $color-dark5;
+    color: $color-dark1;
+    outline: none;
+    padding-bottom: $gridspacing * .75;
+    padding-left: $gridspacing * 2;
+    padding-right: $gridspacing * 6;
+    padding-top: $gridspacing * 1.25;
+    text-align: left;
+    transition:
+      -webkit-box-shadow $transition-duration $transition-easing,
+      box-shadow $transition-duration $transition-easing;
+    width: 100%;
+
+    &:hover {
+      box-shadow:
+        0 0 0 2px transparent,
+        inset 0 0 0 1px $color-dark4;
+    }
+
+    &:focus {
+      box-shadow:
+        0 0 0 2px $color-interactive2,
+        inset 0 0 0 1px $color-dark5;
+    }
+
+    &:disabled {
+      border-color: $color-light2;
+      opacity: .5;
+      pointer-events: none;
+
+      &:hover {
+        opacity: .6;
+      }
+    }
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    &::-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 #000;
+    }
+  }
+
+  textarea {
+    border-radius: $border-radius;
+    line-height: 19px;
+    min-height: 120px;
+    padding: $gridspacing * 2;
+  }
+
+  .forminput-x-icon {
+    height: $gridspacing * 2;
+    position: absolute;
+    right: $gridspacing * 1.5;
+    top: $gridspacing * 1.5;
+    width: $gridspacing * 2;
+  }
+
+  .forminput-x-error {
+    display: none;
+    font-weight: bold;
+    padding: $gridspacing 0 0 $gridspacing;
+  }
+
+  .forminput-x-message {
+    color: $color-light1;
+    font-weight: bold;
+    padding: $gridspacing 0 0 $gridspacing;
+  }
+
+  .forminput-x-select {
+    &::after,
+    &::before {
+      border: 0 none; // reset other button styles
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      content: '';
+      display: block;
+      height: 0;
+      left: auto;
+      pointer-events: none;
+      position: absolute;
+      right: 14px;
+      transition: border-color $transition-duration $transition-easing;
+      width: 0;
+      z-index: $z-index-low;
+    }
+
+    &::after {
+      border-top: 6px solid $color-interactive2;
+      top: calc(50% + 2px);
+    }
+
+    &::before {
+      border-bottom: 6px solid $color-interactive2;
+      bottom: calc(50% + 2px);
+    }
+  }
+
+  &.forminput-is-disabled {
+    .forminput-x-select {
+      cursor: not-allowed;
+
+      &::after {
+        border-top-color: $color-light3;
+      }
+
+      &::before {
+        border-bottom-color: $color-light3;
+      }
+    }
+  }
+
+  &.forminput-is-error {
+    input,
+    select,
+    textarea {
+      box-shadow:
+            0 0 0 2px transparent,
+        inset 0 0 0 1px $color-error1;
+
+      &:hover {
+        box-shadow:
+          0 0 0 2px transparent,
+          inset 0 0 0 1px $color-error2;
+      }
+
+      &:focus {
+        box-shadow:
+          0 0 0 2px $color-error1,
+          inset 0 0 0 1px $color-error2;
+      }
+    }
+
+    select {
+      box-shadow:
+        0 0 0 2px transparent,
+        inset 0 0 0 1px $color-error1;
+
+      &:hover {
+        box-shadow:
+          0 0 0 2px transparent,
+          inset 0 0 0 1px $color-error2;
+      }
+
+      &:focus {
+        box-shadow:
+          0 0 0 2px $color-error1,
+          inset 0 0 0 1px $color-error2;
+      }
+    }
+
+    .forminput-x-icon {
+      color: $color-error1;
+    }
+
+    .forminput-x-select {
+      &::after {
+        border-top-color: $color-error1;
+      }
+
+      &::before {
+        border-bottom-color: $color-error1;
+      }
+    }
+
+    &::before {
+      border-bottom-color: $color-error1;
+    }
+  }
+}
+
+.forminput-large {
+  input,
+  textarea {
+    @include typography-body-large;
+    padding-bottom: $gridspacing * 1.75;
+    padding-top: $gridspacing * 2.25;
+  }
+
+  &.forminput-with-icon {
+    input,
+    textarea {
+      padding-right: $gridspacing * 8;
+    }
+
+    .forminput-x-icon {
+      height: $gridspacing * 3;
+      right: 20px;
+      top: 20px;
+      width: $gridspacing * 3;
+    }
+  }
+}
+
+.forminput-with-icon {
+  input,
+  textarea {
+    padding-right: $gridspacing * 5;
+  }
+}
+
+.forminput-responsive {
+
+  @media(min-width: $media-mobilelarge) {
+    input,
+    textarea {
+      @include typography-body-large;
+      padding-bottom: $gridspacing * 1.75;
+      padding-top: $gridspacing * 2.25;
+    }
+
+    &.forminput-with-icon {
+      input,
+      textarea {
+        padding-right: $gridspacing * 8;
+      }
+
+      .forminput-x-icon {
+        height: $gridspacing * 3;
+        width: $gridspacing * 3;
+        top: 20px;
+        right: 20px;
+      }
+    }
+  }
+}
