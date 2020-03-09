@@ -1,2 +1,2 @@
-# Lrng App
+# LRNG App
 Code Samples // Help team successfully build, test and ship significant refactors of administrative interface and "projects" feature. Integrate administrative UI, learner UI pattern libraries. Successfully built, delivered custom SVG navigational interface prototype. Build complex set of components for administrative interface to enable multiple workflow contexts, each with overlay navigation, accessibility quicklinks, sticky elements, toast modals. Implement accessibility features and collaborated with accessibility designer to ensure the interface meets WCAG standards across all major browsers.
